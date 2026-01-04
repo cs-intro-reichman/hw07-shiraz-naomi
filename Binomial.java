@@ -22,14 +22,11 @@ public class Binomial {
 	// Computes the Binomial function, efficiently
 	public static int binomial(int n, int k) {
 		int[][] memo = new int[n + 1][k + 1];
-		for (int i = 0; i < n; i++) {
-			for (int j = 0; j < k; j++) {
+		for (int i = 0; i <= n; i++) {
+			for (int j = 0; j <= k; j++) {
 				memo[i][j] = -1;
 			}
 		}
-
-		// It then calls binomial(n, k, memo), which does all the heavy
-		/// lifiting. Replace the following statement with your code.
 		return binomial(n, k, memo);
 	}
 
@@ -37,13 +34,11 @@ public class Binomial {
 		if (memo[n][k] != -1) {
 			return memo[n][k];
 		}
-		// Base case
-		if ((k > n)) {
+		if (k > n) {
 			memo[n][k] = 0;
 			return 0;
 		}
-		// Another base case
-		if (n == 0 || k == 0) {
+		if (k == 0 || k == n) {
 			memo[n][k] = 1;
 			return 1;
 		}
